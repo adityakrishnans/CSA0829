@@ -1,0 +1,237 @@
+ASSIGNMENT - 01
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+m = 10
+n = 50
+
+for num in range(m, n + 1):
+    if num > 1:
+        for i in range(2, num):
+            if num % i == 0:
+                break
+        else:
+            print(num)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. def is_tech_number(num):
+    num_str = str(num)
+    half = len(num_str) // 2
+    first = int(num_str[:half])
+    second = int(num_str[half:])
+    total = first + second
+    return total * total == num
+
+number = int(input("Enter a number: "))
+if is_tech_number(number):
+    print("Tech Number")
+else:
+    print("Not a Tech Number")
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. import math
+
+n = int(input("Enter the number of terms: "))
+total = 0
+
+for i in range(1, n+1):
+    total += math.factorial(i) // i
+
+print("Sum of the series is:", total)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. total = 0
+
+while True:
+    num = int(input("Enter a number (-1 to stop): "))
+    if num == -1:
+        break
+    if num < 0:
+        total += num
+
+print("Sum of negative numbers entered:", total)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. text = input("Enter your text: ")
+
+sentences = text.split('.')  # split by period
+count = 0
+
+for sentence in sentences:
+    sentence = sentence.strip()  # remove spaces
+    if sentence.startswith('B') or sentence.startswith('b'):
+        count += 1
+
+print("Sentences starting with B:", count)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+total = 0
+for i in range(len(matrix)):
+    print(matrix[i][i], end=' ')
+    total += matrix[i][i]
+
+print("\nSum:", total)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. import math
+
+n = int(input("Enter number of terms: "))
+total = 0
+
+for i in range(1, n+1):
+    s = i * (i + 1) // 2
+    total += math.factorial(s)
+
+print("Sum is:", total)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. n = int(input("Enter the number of rows: "))
+
+for i in range(1, n+1):
+    print('*' * i)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. def simple_interest(p, t, is_senior, is_other):
+    if is_senior:
+        r = 15
+    elif is_other:
+        r = 12
+    else:
+        r = 10
+    return (p * r * t) / 100
+
+p = float(input("Principal: "))
+t = float(input("Time (years): "))
+senior = input("Senior citizen? (yes/no): ").lower() == 'yes'
+other = input("Other customer? (yes/no): ").lower() == 'yes'
+
+interest = simple_interest(p, t, senior, other)
+print("Simple Interest:", interest)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+10. decimal = int(input("Enter a decimal number: "))
+binary = bin(decimal)[2:]  
+print("Binary:", binary)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+11. import statistics
+
+
+numbers = list(map(float, input("Enter numbers separated by space: ").split()))
+
+mean = statistics.mean(numbers)
+median = statistics.median(numbers)
+mode = statistics.mode(numbers)
+
+print(f"Mean: {mean}")
+print(f"Median: {median}")
+print(f"Mode: {mode}")
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+12. def is_perfect_number(n):
+    return sum(i for i in range(1, n) if n % i == 0) == n
+
+
+number = int(input("Enter a number: "))
+if is_perfect_number(number):
+    print(f"{number} is a perfect number.")
+else:
+    print(f"{number} is not a perfect number.")
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+13. def is_palindrome(n):
+   
+    return str(n) == str(n)[::-1]
+
+
+number = int(input("Enter a number: "))
+if is_palindrome(number):
+    print(f"{number} is a palindrome.")
+else:
+    print(f"{number} is not a palindrome.")
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+14. def find_first_and_second_largest(arr):
+    
+    first, second = float('-inf'), float('-inf')
+    
+    
+    for num in arr:
+        if num > first:
+            second = first
+            first = num
+        elif num > second and num != first:
+            second = num
+    
+    return first, second
+
+
+arr = list(map(int, input("Enter numbers separated by space: ").split()))
+first, second = find_first_and_second_largest(arr)
+
+if first == float('-inf') or second == float('-inf'):
+    print("There aren't enough distinct numbers.")
+else:
+    print(f"First largest: {first}, Second largest: {second}")
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+15. num = float(input("Enter a number: "))
+square = num ** 2
+cube = num ** 3
+print(f"Square of {num} is {square}")
+print(f"Cube of {num} is {cube}")
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+16. from itertools import permutations
+num_str = input("Enter a number: ")
+unique_perms = set(permutations(num_str))
+for perm in sorted(unique_perms):
+    print(''.join(perm))
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+17. n = int(input("Enter matrix size: "))
+matrix = []
+
+for _ in range(n):
+    row = list(map(int, input().split()))
+    matrix.append(row)
+for i in range(n):
+    print("Sum of row", i, "=", sum(matrix[i]))
+for j in range(n):
+    col_sum = 0
+    for i in range(n):
+        col_sum += matrix[i][j]
+    print("Sum of column", j, "=", col_sum)
+primary = 0
+secondary = 0
+for i in range(n):
+    primary += matrix[i][i]
+    secondary += matrix[i][n - 1 - i]
+
+print("Sum of primary diagonal =", primary)
+print("Sum of secondary diagonal =", secondary)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

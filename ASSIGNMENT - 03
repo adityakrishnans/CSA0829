@@ -1,0 +1,149 @@
+ASSIGNMENT - 03
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+1. num, k = "1432219", 3
+stack = []
+for digit in num:
+    while k > 0 and stack and stack[-1] > digit:
+        stack.pop()
+        k -= 1
+    stack.append(digit)
+stack = stack[:-k] if k else stack
+result = ''.join(stack).lstrip('0') or '0'
+print(result)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+2. numbers, target = [2,7,11,15], 9
+left, right = 0, len(numbers)-1
+while left < right:
+    current = numbers[left] + numbers[right]
+    if current == target:
+        print([left + 1, right + 1])
+    left, right = left + (current < target), right - (current > target)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+3. mat1 = [[1, 2], [5, 3]]
+mat2 = [[2, 3], [4, 1]]
+
+result = [[0, 0] for _ in range(len(mat1))]
+
+for i in range(len(mat1)):
+    for j in range(len(mat2[0])):
+        for k in range(len(mat2)):
+            result[i][j] += mat1[i][k] * mat2[k][j]
+
+print(result)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+4. from collections import Counter
+
+array = [1, 3, 2, 3, 4, 2, 1, 3, 2]
+frequency = Counter(array)
+
+highest_freq_element = max(frequency, key=frequency.get)
+highest_freq = frequency[highest_freq_element]
+
+print(f"Element: {highest_freq_element}, Frequency: {highest_freq}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+5. array = [1, 2, 3, 4, 5, 6, 7]
+
+mid_index = len(array) // 2
+mid_element = array[mid_index] if len(array) % 2 != 0 else (array[mid_index - 1], array[mid_index])
+
+print(f"Mid element: {mid_element}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+6. array1 = [1, 2, 2, 1]
+array2 = [2, 2]
+
+intersection = list(set(array1) & set(array2))
+
+print(f"Intersection: {intersection}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+7. array = [1, 2, 3, 4, 2, 5, 3, 1, 6]
+
+repeated_elements = set()
+seen = set()
+
+for element in array:
+    if element in seen:
+        repeated_elements.add(element)
+    else:
+        seen.add(element)
+
+print(f"Repeated elements: {list(repeated_elements)}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+8. n = 5  # Example number of steps
+a, b = 1, 1
+for _ in range(2, n + 1):
+    a, b = b, a + b
+print(b)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+9. m, n = 20, 3  # Example: 20 vehicles, 3 children
+x = m % n
+peter_gets = x
+is_lucky = peter_gets % 2 == 0
+
+print(f"Peter gets: {peter_gets}")
+print(f"Peter is {'luckier' if is_lucky else 'not luckier'}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+10. prices = [10, 22, 5, 75, 65, 80]
+buy1, buy2 = float('inf'), float('inf')
+profit1, profit2 = 0, 0
+for p in prices:
+    buy1 = min(buy1, p)
+    profit1 = max(profit1, p - buy1)
+    buy2 = min(buy2, p - profit1)
+    profit2 = max(profit2, p - buy2)
+print(profit2)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+11. array = [4, 6, 8, 9, 10, 11, 13, 15, 16]
+composite_count = sum(1 for x in array if x > 1 and any(x % i == 0 for i in range(2, int(x**0.5) + 1)))
+print(composite_count)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+12. elements = [16, -18, 27, -16, 23, -21, 19]
+negative_count = sum(1 for x in elements if x < 0)
+print(f"Number of negative numbers in List of elements = {negative_count}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+13. statement = "Modi Birthday @ September 17, #&$% is the wishes code for him."
+special_count = sum(1 for char in statement if not char.isalnum() and not char.isspace())
+print(f"Number of special Characters: {special_count}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+14. statement = "Saveetha School of Engineering Sample"
+vowels = sum(1 for char in statement if char.lower() in 'aeiou')
+consonants = sum(1 for char in statement if char.isalpha() and char.lower() not in 'aeiou')
+print(f"Number of vowels = {vowels} Number of Consonants = {consonants}")
+print("Maximum:", "Vowels" if vowels > consonants else "Consonants" if consonants > vowels else "Equal")
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+15. S1 = "what"
+S2 = "watch"
+matches = sum(1 for a, b in zip(S1, S2) if a == b)
+print(matches)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
